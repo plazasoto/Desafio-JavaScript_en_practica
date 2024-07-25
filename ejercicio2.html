@@ -35,7 +35,43 @@
     </div>
 </div>
     <script>
-    // Escríbe aquí tu código
+        //style inicial de la caja que se agregará al nuevo background-color
+        let estilo = "border:1px solid black;width: 100%;height: 100%";
+
+        //addEventListener para los 6 botones
+        let boton1 = document.getElementById("btn-1");
+        boton1.addEventListener("click", cambiarColor1);
+        let boton2 = document.getElementById("btn-2");
+        boton2.addEventListener("click", cambiarColor2);
+        let boton3 = document.getElementById("btn-3");
+        boton3.addEventListener("click", cambiarColor3);
+        let boton4 = document.getElementById("btn-4");
+        boton4.addEventListener("click", cambiarColor4);
+        let boton5 = document.getElementById("btn-5");
+        boton5.addEventListener("click", cambiarColor5);
+        let boton6 = document.getElementById("btn-6");
+        boton6.addEventListener("click", cambiarColor6);
+        
+        //funciones de cada botón con su color respectivo
+        function cambiarColor1(){   
+            document.getElementById("caja").setAttribute("style", "background-color: #e53e3e;"+estilo);
+        }
+        function cambiarColor2(){   
+            document.getElementById("caja").setAttribute("style", "background-color: #dd6b20;"+estilo);
+        }
+        function cambiarColor3(){   
+            document.getElementById("caja").setAttribute("style", "background-color: #faf089;"+estilo);
+        }
+        function cambiarColor4(){   
+            document.getElementById("caja").setAttribute("style", "background-color: #48bb78;"+estilo);
+        }
+        function cambiarColor5(){   
+            document.getElementById("caja").setAttribute("style", "background-color: #81e6d9;"+estilo);
+        }
+        function cambiarColor6(){   
+            document.getElementById("caja").setAttribute("style", "background-color: #d53f8c;"+estilo);
+        }
+
     </script>
 </body>
 
