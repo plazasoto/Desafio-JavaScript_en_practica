@@ -35,7 +35,30 @@
         </div>
     </div>
     <script>
-    // Escríbe aquí tu código
+        //asignar funciones a los botones
+        document.getElementById("btn-sumar").addEventListener("click",sumar);
+        document.getElementById("btn-restar").addEventListener("click",restar);
+
+
+        function sumar(){
+            let val1 = parseFloat(document.getElementById("valor1").value);
+            let val2 = parseFloat(document.getElementById("valor2").value);
+            mostrarResultado(val1+val2);  
+        }
+
+        function restar(){
+            let val1 = parseFloat(document.getElementById("valor1").value);
+            let val2 = parseFloat(document.getElementById("valor2").value); 
+            mostrarResultado(val1-val2);
+        }
+
+        function mostrarResultado(resultado){
+            if(resultado < 0){
+                resultado = 0;
+            }
+            document.querySelector(".resultado").innerHTML = resultado;
+        }
+
     </script>
 </body>
 
