@@ -47,57 +47,68 @@
         </div>
     </div>
     <script>
+        //expresión regular a usar en validación, incluyendo vocales acentuadas y espacios
         let permitido = /^[a-zA-Z\sáéíóúü]+$/i;
+
+        //addEventListener para submit al clickear el botón
         let botonEnviar = document.getElementById("formulario");
         botonEnviar.addEventListener("submit", validar);
         
+        //función de validación
         function validar(event){
             event.preventDefault();
 
+            //valores ingresados por el usuario en el formulario
             let valueNombre = document.getElementById("nombre").value;
             let valueAsunto = document.getElementById("asunto").value;
             let valueMensaje = document.getElementById("mensaje").value;
 
+            //mensajes a mostrar
             let resultado = document.querySelector(".resultado");
             let errorNombre = document.querySelector(".errorNombre");
             let errorAsunto = document.querySelector(".errorAsunto");
             let errorMensaje = document.querySelector(".errorMensaje");
 
+            //mostrar mensaje de éxito solamente si los tres campos son válidos
             if(permitido.test(valueNombre) && permitido.test(valueAsunto) && permitido.test(valueMensaje)){
                 resultado.innerHTML = "¡¡¡Mensaje enviado con éxito!!!";  
+                //ocultar mensajes de error que ya debiesen haber sido resueltos
                 errorNombre.innerHTML = "";
                 errorAsunto.innerHTML = "";
                 errorMensaje.innerHTML = "";
             }else{
+                //ocultar mensaje de éxito si lo hubiere
                 resultado.innerHTML = "";
 
+                //determinar si el error es por campo vacío o texto no alfabético
+                //para nombre
                 if(!permitido.test(valueNombre)){
                     if(valueNombre == ""){
                         errorNombre.innerHTML = "El nombre es requerido.";
                     }else{
                         errorNombre.innerHTML = "El nombre solo puede incluir caracteres alfabéticos.";
                     }
-                }else{
+                }else{//ocultar este mensaje en caso de no haber error en el nombre 
                     errorNombre.innerHTML = "";
                 }
-                
+                //para asunto
                 if(!permitido.test(valueAsunto)){
                     if(valueAsunto == ""){
                         errorAsunto.innerHTML = "El asunto es requerido.";
                     }else{
                         errorAsunto.innerHTML = "El asunto solo puede incluir caracteres alfabéticos.";
                     }
-                }else{
+                }else{//ocultar este mensaje en caso de no haber error en el asunto 
                     errorAsunto.innerHTML = "";
                 }
-
+                //para mensaje
                 if(!permitido.test(valueMensaje)){
                     if(valueMensaje == ""){
                         errorMensaje.innerHTML = "El mensaje es requerido.";
                     }else{
                         errorMensaje.innerHTML = "El mensaje solo puede incluir caracteres alfabéticos.";
                     }
-                }else{
+                }else{//ocultar este mensaje en caso de no haber error en el mensaje 
                     errorMensaje.innerHTML = "";
                 }
             }
